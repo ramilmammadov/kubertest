@@ -1,9 +1,9 @@
 pipeline{
     agent {
         kubernetes{
-            label 'java-k8s-gradle-gcloud-helm'
+            label 'custom-agent'
             idleMinutes 5
-            yamlFile 'jenkins-agents/k8-build-agent/jenkins-agent.yaml'
+            yamlFile 'jenkins-agents/k8-custom-build-agent/jenkins-agent.yaml'
             defaultContainer 'java-k8s-gradle-gcloud-helm'
         }
     }
