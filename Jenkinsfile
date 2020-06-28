@@ -3,7 +3,7 @@ pipeline{
         kubernetes{
             label 'Jenkinsfile'
             idleMinutes 5
-            yamlFile 'jenkins-agents/jenkins-agent.yaml'
+            yamlFile 'jenkins-agents/k8-build-agent/jenkins-agent.yaml'
             defaultContainer 'kubertest'
         }
     }
