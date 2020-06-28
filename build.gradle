@@ -1,7 +1,11 @@
+import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage;
+import com.bmuschko.gradle.docker.tasks.image.DockerPushImage;
+
 plugins {
     id 'org.springframework.boot' version '2.3.1.RELEASE'
     id 'io.spring.dependency-management' version '1.0.9.RELEASE'
     id 'java'
+    id 'com.bmuschko.docker-remote-api' version '6.1.2'
 }
 
 group = 'com.example'
@@ -21,6 +25,19 @@ dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
 }
 
-test {
-    useJUnitPlatform()
+task copyDockerfiles(type: Copy, dependsOn: assemble) {
+    from 'src/docker'
+    from "${project.buildDir}/libs"
+    into { "${project.buildDir}/docker" }
+    include "*"
+    exclude "**/*.yml"
 }
+task dockerBuild(type: DockerBuildImage, dependsOn: copyDockerfiles) {
+    inputDir.set(file("${project.buildDir}/docker"))
+    images.add("gcr.io/winter-monolith-281508/kubertest:3.0")
+
+}
+task dockerPush(type: DockerPushImage, dependsOn: dockerBuild) {
+    images.add("gcr.io/winter-monolith-281508/kubertest:3.0")
+}
+
