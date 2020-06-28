@@ -10,6 +10,11 @@ pipeline{
     stages{
         stage('Build'){
             steps{
+                sh "echo Hello World from container"
+            }
+        }
+        stage('Build'){
+            steps{
                     sh "mkdir -p /tmp"
                     sh "./gradlew build"
             }
