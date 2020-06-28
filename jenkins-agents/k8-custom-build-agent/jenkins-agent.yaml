@@ -3,7 +3,7 @@ kind: Pod
 spec:
   containers:
     - name: kubertest-automated
-      image: gcr.io/winter-monolith-281508/kubertest-automated:1.0
+      image: gcr.io/winter-monolith-281508/kubertest-automated:2.0
       command: ["tail","-f","/dev/null"]
       imagePullPolicy: Always
       volumeMounts:
