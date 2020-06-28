@@ -1,4 +1,4 @@
-FROM alpine:3.10
+FROM docker
 
 ENV HELM_VERSION v2.14.3
 
