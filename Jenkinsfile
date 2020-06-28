@@ -1,10 +1,10 @@
 pipeline{
     agent {
         kubernetes{
-            label 'Jenkinsfile'
+            label 'gcloud-k8s-gradle-gcloud-helm'
             idleMinutes 5
             yamlFile 'jenkins-agents/k8-build-agent/jenkins-agent.yaml'
-            defaultContainer 'kubertest'
+            defaultContainer 'gcloud-k8s-gradle-gcloud-helm'
         }
     }
     stages{
