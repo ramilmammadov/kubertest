@@ -13,7 +13,8 @@ RUN rm /bin/sh \
 ENV JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk
 
 #Install python
-RUN apk add --update python
+#RUN apk add --update python
+RUN apk --update add python
 #RUN apk update && apk add --no-cache gcc libffi-dev g++ python-dev build-base linux-headers postgresql-dev postgresql-contrib pcre-dev bash alpine-sdk jpeg-dev zlib-dev \ && pip install wheel
 
 
