@@ -1,10 +1,12 @@
-FROM docker
+FROM alpine:3.10
 
 ENV HELM_VERSION v2.14.3
 
+#Install curl
 RUN apk add --update bash libstdc++ curl zip \
  && rm -rf /var/cache/apk/*
 
+#Install Java
 RUN apk --update add openjdk8
 RUN rm /bin/sh \
 && ln -s /bin/bash /bin/sh
@@ -12,6 +14,8 @@ ENV JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk
 
 #Install python
 RUN apk add --update python
+#RUN apk update && apk add --no-cache gcc libffi-dev g++ python-dev build-base linux-headers postgresql-dev postgresql-contrib pcre-dev bash alpine-sdk jpeg-dev zlib-dev \ && pip install wheel
+
 
 #Install GIT
 RUN apk add --update git
