@@ -4,7 +4,7 @@ pipeline{
             label 'Jenkinsfile'
             idleMinutes 5
             yamlFile 'jenkins-agents/jenkins-agent.yaml'
-            defaultContainer 'kubertest-autometed'
+            defaultContainer 'kubertest'
         }
     }
     stages{
