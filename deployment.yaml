@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubertest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubertest
+  template:
+    metadata:
+      labels:
+        app: kubertest
+    spec:
+      containers:
+        - name: kubertest
+          image: gcr.io/winter-monolith-281508/kubertest-autometed:1.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
