@@ -40,3 +40,4 @@ task dockerBuild(type: DockerBuildImage, dependsOn: copyDockerfiles) {
 task dockerPush(type: DockerPushImage, dependsOn: dockerBuild) {
     images.add("gcr.io/winter-monolith-281508/kubertest:8.0")
 }
+
