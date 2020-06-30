@@ -1,42 +1,20 @@
-#apiVersion: v1
-#kind: Pod
-#spec:
-#  containers:
-#    - name: kubertest
-#      image: gcr.io/winter-monolith-281508/kubertest:1.0
-#      command: ["tail","-f","/dev/null"]
-#      imagePullPolicy: Always
-#      volumeMounts:
-#        - name: docker
-#          mountPath: /var/run/docker.sock
-#      resources:
-#        requests:
-#           memory: "1Gi"
-#        limits:
-#           memory: "1Gi"
-#  volumes:
-#    - name: docker
-#      hostPath:
-#         path: /var/run/docker.sock
-
-
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: kubertest
+apiVersion: v1
+kind: Pod
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: kubertest
-  template:
-    metadata:
-      labels:
-        app: kubertest
-    spec:
-      containers:
-        - name: kubertest
-          image: gcr.io/winter-monolith-281508/kubertest:1.0
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 8080
+  containers:
+    - name: kubertest
+      image: gcr.io/winter-monolith-281508/kubertest:1.0
+      command: ["tail","-f","/dev/null"]
+      imagePullPolicy: Always
+      volumeMounts:
+        - name: docker
+          mountPath: /var/run/docker.sock
+      resources:
+        requests:
+          memory: "1Gi"
+        limits:
+          memory: "1Gi"
+  volumes:
+    - name: docker
+      hostPath:
+        path: /var/run/docker.sock
