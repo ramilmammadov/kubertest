@@ -11,7 +11,7 @@ pipeline{
         stage('Build'){
             steps{
                     sh "mkdir -p /tmp"
-                    sh "./gradlew dockerPush"
+                    sh "./gradlew build"
             }
         }
     }
