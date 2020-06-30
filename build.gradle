@@ -34,10 +34,10 @@ task copyDockerfiles(type: Copy, dependsOn: assemble) {
 }
 task dockerBuild(type: DockerBuildImage, dependsOn: copyDockerfiles) {
     inputDir.set(file("${project.buildDir}/docker"))
-    images.add("gcr.io/winter-monolith-281508/kubertest:8.0")
+    images.add("gcr.io/winter-monolith-281508/kubertest-automated:10.0")
 
 }
 task dockerPush(type: DockerPushImage, dependsOn: dockerBuild) {
-    images.add("gcr.io/winter-monolith-281508/kubertest:8.0")
+    images.add("gcr.io/winter-monolith-281508/kubertest-automated:10.0")
 }
 
