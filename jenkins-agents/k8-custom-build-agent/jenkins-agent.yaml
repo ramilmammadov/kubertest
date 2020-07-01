@@ -11,10 +11,10 @@ spec:
           mountPath: /var/run/docker.sock
       resources:
         requests:
-          memory: "1Gi"
+           memory: "1Gi"
         limits:
-          memory: "1Gi"
+           memory: "1Gi"
   volumes:
     - name: docker
       hostPath:
-        path: /var/run/docker.sock
+         path: /var/run/docker.sock
